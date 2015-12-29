@@ -1,19 +1,15 @@
 {
-  "name": "HTML5-Application",
-  "version": "0.1.0",
-  "description": "The Description",
-  "url": "",
-  "devDependencies": {
-    "ts-loader": "^0.7.2",
-    "webpack": "^1.12.9",
-    "backbone": "~1.2.3",
-    "jquery": "^2.1.4",
-    "typescript": "^1.7.5"
-  },
-  "dependencies": {
-    "backbone": "~1.2.3",
-    "handlebars": "^4.0.5",
-    "jquery": "^2.1.4",
-    "typescript": "^1.7.5"
-  }
+    "name": "HTML5-Application",
+    "version": "0.1.0",
+    "description": "The Description",
+    "url": "",
+    "devDependencies": {
+        "ts-loader": "^0.7.2",
+        "webpack": "^1.12.9",
+        "backbone": "~1.2.3",
+        "jquery": "^2.1.4",
+        "typescript": "^1.7.5",
+        "handlebars": "^4.0.5",
+        "handlebars-loader": "^1.1.4"
+    }
 }

@@ -17,6 +17,7 @@ module.exports = {
     loaders: [{
       test: /\.ts$/,
       loader: 'ts'
-    }]
+    },
+      { test: /\.html/, loader: "handlebars-loader" }]
   }
 };
