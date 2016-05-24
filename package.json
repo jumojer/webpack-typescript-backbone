@@ -17,19 +17,41 @@
   },
   "homepage": "https://github.com/jumojer/webpack-typescript-backbone#readme",
   "devDependencies": {
-    "css-loader": "^0.23.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-beautify": "^2.0.0",
+    "gulp-connect": "^3.2.3",
+    "gulp-if": "^2.0.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-sass": "^2.3.1",
+    "gulp-scss-lint": "^0.4.0",
+    "gulp-size": "^2.1.0",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.6",
     "handlebars": "^4.0.5",
-    "handlebars-loader": "^1.1.4",
+    "handlebars-loader": "^1.3.0",
     "node-sass": "^3.7.0",
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
-    "ts-loader": "^0.7.2",
-    "typescript": "^1.7.5",
+    "css-loader": "^0.23.1",
+    "ts-loader": "^0.8.2",
+    "typescript": "^1.8.10",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.1"
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-mocha": "^1.0.1",
+    "karma-spec-reporter": "0.0.26",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.5.1",
+    "chai": "^3.5.0",
+    "del": "^2.2.0",
+    "webpack": "^1.13.1",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-stream": "^3.2.0"
   },
   "dependencies": {
     "backbone": "^1.3.3",
-    "jquery": "^1.12.4"
+    "jquery": "^2.2.4"
   }
 }
