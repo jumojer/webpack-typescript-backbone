@@ -1,16 +1,10 @@
 typings/
-check-style/
 node_modules/
-bower_components/
 dist/
 tmp/
-src/assets/sass/maps/
+.idea/
 staticResources*
-jshint-report.html
 *~
 *.sublime-workspace
 *.sublime-project
-secret.json
 *.DS_Store
-.mongodb/
-js/

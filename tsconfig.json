@@ -1,9 +1,18 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "sourceMap": true,
-        "target": "es5"
+        "target": "es5",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "sourceMap": false,
+        "outDir": "dist"
     },
     "files": [
+      "src/app.ts",
+      "typings/index.d.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
     ]
 }

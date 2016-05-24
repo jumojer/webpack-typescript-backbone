@@ -1,4 +1,3 @@
-/// <reference path="../../typings/tsd.d.ts" />
 import Backbone = require("backbone");
 
 class UserModel extends Backbone.Model {

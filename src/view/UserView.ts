@@ -1,5 +1,4 @@
-// <amd-dependency path="text!../template/UserView.html" />
-
+import $ = require('jquery');
 import Backbone = require("backbone");
 import UserModel = require("../model/UserModel");
 import Handlebars = require("handlebars");
@@ -12,7 +11,7 @@ class UserView extends Backbone.View<UserModel> {
 
     initialize(options: any = {}) {
 
-    this.template = require("../template/UserView.html");
+    this.template = require("../template/UserView.hbs");
         options.model.on("change", this.updateFullName.bind(this));
     }
 
@@ -25,13 +24,13 @@ class UserView extends Backbone.View<UserModel> {
     nameTextChanged() {
         console.log('keyup');
         this.model.set({
-            firstName: this.$("[name=firstName]").val(),
-            lastName: this.$("[name=lastName]").val()
+            firstName: $("[name=firstName]").val(),
+            lastName: $("[name=lastName]").val()
         });
     }
 
     updateFullName() {
-        this.$("#userName").text(this.model.fullName);
+        $("#userName").text(this.model.fullName);
     }
 
     render() {

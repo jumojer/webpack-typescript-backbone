@@ -1,15 +1,35 @@
 {
-    "name": "HTML5-Application",
-    "version": "0.1.0",
-    "description": "The Description",
-    "url": "",
-    "devDependencies": {
-        "ts-loader": "^0.7.2",
-        "webpack": "^1.12.9",
-        "backbone": "~1.2.3",
-        "jquery": "^2.1.4",
-        "typescript": "^1.7.5",
-        "handlebars": "^4.0.5",
-        "handlebars-loader": "^1.1.4"
-    }
+  "name": "webpack-typescript-backbone",
+  "version": "1.0.0",
+  "description": "npm install tds install webpack",
+  "main": "src/app.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jumojer/webpack-typescript-backbone.git"
+  },
+  "author": "Jérôme St-Hilaire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jumojer/webpack-typescript-backbone/issues"
+  },
+  "homepage": "https://github.com/jumojer/webpack-typescript-backbone#readme",
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "handlebars": "^4.0.5",
+    "handlebars-loader": "^1.1.4",
+    "node-sass": "^3.7.0",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "ts-loader": "^0.7.2",
+    "typescript": "^1.7.5",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.1"
+  },
+  "dependencies": {
+    "backbone": "^1.3.3",
+    "jquery": "^1.12.4"
+  }
 }
