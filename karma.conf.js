@@ -8,8 +8,8 @@ module.exports = function(config) {
   frameworks: ['mocha'],
 
   files: [
-    'tests/index.js',
-    'tests/**/*.js'
+    'tests/index.ts',
+    'tests/**/*.ts'
   ],
 
   preprocessors: {
@@ -19,8 +19,8 @@ module.exports = function(config) {
   webpack: {
     module: {
       loaders : [
-          { test: /\.js?$/, exclude: /node_modules/, loader: 'babel-loader' },
-          { test: /\.hbs$/, loader: 'handlebars-loader' }
+        { test: /\.ts$/, loader: 'ts-loader', exclude: "node_modules/" },
+        { test: /\.hbs/, loader: "handlebars-loader", exclude: "node_modules/" }
       ]
     }
   },

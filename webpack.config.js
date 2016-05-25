@@ -11,10 +11,10 @@ var uglifyJsPlugin = new webpack.optimize.UglifyJsPlugin({
 });
 
 module.exports.production = {
-  entry: './src/app.ts',
+  entry: './src/js/app.ts',
   output: {
     filename: 'js/app.js',
-    path: './dist',
+    path: path.resolve('./dist'),
     publicPath: 'https://assets.transparentkitchen.ca/'
   },
   resolve: {
@@ -37,10 +37,10 @@ module.exports.production = {
 };
 
 module.exports.development = {
-    entry: './src/app.ts',
+    entry: './src/js/app.ts',
     output: {
         filename: 'js/app.js',
-        path: './dist',
+        path: path.resolve('./dist'),
     },
     devtool: 'source-map',
     resolve: {

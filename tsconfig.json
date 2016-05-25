@@ -7,10 +7,6 @@
         "sourceMap": false,
         "outDir": "dist"
     },
-    "files": [
-      "src/app.ts",
-      "typings/index.d.ts"
-    ],
     "exclude": [
         "node_modules",
         "dist"

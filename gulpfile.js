@@ -15,6 +15,7 @@ var webpackConfig = require('./webpack.config.js')[environment];
 
 var port = $.util.env.port || 1337;
 var src = 'src/';
+var srcjs = src+ 'js/';
 var dist = 'dist/';
 
 var autoprefixerBrowsers = [
@@ -37,7 +38,7 @@ function overwrite(data) {
 gulp.task('scripts', function() {
   return gulp.src(webpackConfig.entry)
     .pipe($.webpackStream(webpackConfig))
-    .pipe(gulp.dest(dist + 'js/'))
+    .pipe(gulp.dest(dist))
     .pipe($.size({ title : 'js' }))
     .pipe($.connect.reload());
 });
@@ -47,16 +48,6 @@ gulp.task('html', function() {
     .pipe(gulp.dest(dist))
     .pipe($.size({ title : 'html' }))
     .pipe($.connect.reload());
-});
-
-gulp.task('styles',function(cb) {
-  return gulp.src(src + 'sass/main.scss')
-    .pipe($.sass({outputStyle: 'compressed'}))
-    .pipe($.autoprefixer({browsers: autoprefixerBrowsers}))
-    .pipe(gulp.dest(dist + 'css/'))
-    .pipe($.size({ title : 'css' }))
-    .pipe($.connect.reload());
-
 });
 
 gulp.task('serve', function() {
@@ -69,20 +60,32 @@ gulp.task('serve', function() {
   });
 });
 
-gulp.task('static', function(cb) {
+gulp.task('static', function() {
   return gulp.src(src + 'static/**/*')
     .pipe($.size({ title : 'static' }))
     .pipe(gulp.dest(dist + 'static/'));
 });
 
 gulp.task('watch', function() {
-  gulp.watch(src + 'sass/*.scss', ['styles']);
   gulp.watch(src + 'index.html', ['html']);
-  gulp.watch([src+ 'app.ts', src + '/**/*.ts', src + 'templates/*.hbs'], ['scripts']);
+  gulp.watch([srcjs+ 'app.ts', srcjs + '/**/*.ts', srcjs + 'templates/*.hbs', src + 'scss/*.scss'], ['scripts']);
+});
+
+gulp.task('scss-lint', function() {
+    return gulp.src(src+'/scss/*.scss')
+        .pipe(scsslint())
+        .pipe(gulpif(isProduction, scsslint.failReporter()));
+});
+
+gulp.task('beautify', function() {
+    gulp.src([srcjs+'/*.ts', srcjs+'/**/*.ts'], {base: './'})
+        .pipe(beautify({indentSize: 4}))
+        .pipe(gulp.dest(overwrite));
 });
 
 gulp.task('clean', function(cb) {
-  del([dist], cb);
+    del([dist]);
+    cb();
 });
 
 /**
@@ -104,20 +107,8 @@ gulp.task('tdd', function (done) {
     }, done).start();
 });
 
-gulp.task('scss-lint', function() {
-    return gulp.src('/scss/*.scss')
-        .pipe(scsslint())
-        .pipe(gulpif(isProduction, scsslint.failReporter()));
-});
-
-gulp.task('beautify', function() {
-    gulp.src([src+'app/*.js', src+'app/**/*.js'], {base: './'})
-        .pipe(beautify({indentSize: 4}))
-        .pipe(gulp.dest(overwrite));
-});
-
 gulp.task('tests', function () {
-    gulp.start(['test', 'scss-lint', 'es-lint']);
+    gulp.start(['test', 'scss-lint']);
 });
 
 // by default build project and then watch files in order to trigger livereload
@@ -125,5 +116,5 @@ gulp.task('default', ['build', 'serve', 'watch']);
 
 // waits until clean is finished then builds the project
 gulp.task('build', ['clean'], function(){
-  gulp.start(['static', 'html','scripts','styles']);
+  gulp.start(['static', 'html','scripts']);
 });
